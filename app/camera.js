@@ -1,5 +1,5 @@
 // app/camera.js
-import { Camera } from 'expo-camera';
+import { CameraView, requestCameraPermissionsAsync } from 'expo-camera';
 import { useRouter } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
@@ -11,10 +11,12 @@ export default function CameraScreen() {
 
     useEffect(() => {
         (async () => {
-            const { status } = await Camera.requestCameraPermissionsAsync();
+            const { status } = await requestCameraPermissionsAsync();
+            console.log('📷 Camera permission status:', status); // ✅ This line shows the status in terminal
             setHasPermission(status === 'granted');
         })();
     }, []);
+
 
     const takePicture = async () => {
         if (cameraRef.current) {
@@ -28,7 +30,11 @@ export default function CameraScreen() {
 
     return (
         <View style={styles.container}>
-            <Camera ref={cameraRef} style={styles.camera} />
+            <CameraView
+                ref={cameraRef}
+                style={styles.camera}
+                facing="back"
+            />
             <TouchableOpacity onPress={takePicture} style={styles.captureButton}>
                 <Text style={styles.buttonText}>📸 Capture</Text>
             </TouchableOpacity>
