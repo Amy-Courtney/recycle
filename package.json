@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "ooadi",
   "version": "1.0.0",
   "main": "index.js",
@@ -15,4 +16,25 @@
     "multer": "^2.0.1"
   },
   "description": ""
+=======
+  "name": "wrm",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "expo": "~53.0.10",
+    "expo-status-bar": "~2.2.3",
+    "react": "19.0.0",
+    "react-native": "0.79.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0"
+  },
+  "private": true
+>>>>>>> 927ecfd7e957abd10c5cd10e345fa72c3df89b72
 }
